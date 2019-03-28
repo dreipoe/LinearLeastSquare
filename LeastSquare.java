@@ -7,12 +7,12 @@ public class LeastSquare {
     public LeastSquare(double[] y) {
         int n = y.length;
         double sumX = n * (n + 1) / 2;
-        double sumY = 0, sumX2 = 0, sumXY = 0;
+        double sumX2 = sumX * (2 * n + 1) / 3;
+        double sumY = 0, sumXY = 0;
         
-        for (int x = 1; x <= y.length; x++) {
-            sumY += y[x - 1];
-            sumX2 += x * x;
-            sumXY += x * y[x - 1];
+        for (int x = 0; x < n; x++) {
+            sumY += y[x];
+            sumXY += (x + 1) * y[x];
         }
         
         double k = sumX2 / sumX;
